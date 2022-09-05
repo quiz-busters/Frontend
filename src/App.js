@@ -40,7 +40,11 @@ console.log(data)
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/quizform" element={<QuizForm name={name} setName={setName} fetchQuestions={fetchQuestions}/>}/>
-      <Route path="/quiz" element={<Quiz/>}/>
+      <Route path="/quiz" element={<Quiz name={name}
+              questions={questions}
+              score={score}
+              setScore={setScore}
+              setQuestions={setQuestions}/>}/>
 
 
       <Route path="/*" element={<h1>Page not found!</h1>}/>
