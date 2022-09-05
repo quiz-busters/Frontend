@@ -5,12 +5,10 @@ const Base = ({children}) => (
     <div className={classes.container}>
     
     
-	<header className={classes.header}>
-		{/* <div class="curve"></div> */}
-	</header>
+	<header className={classes.header}></header>
 	<main className={classes.main}>	
 	{children}
-	</main>
+    </main>
 
     </div>
 )
