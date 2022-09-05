@@ -8,6 +8,7 @@ import { useUserContext } from '../../context/UserContext';
 import Profile from '../../images/profile.png';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 
 function Home() {
@@ -56,6 +57,11 @@ function Home() {
                         <p>Physics</p>
                         <p>You completed 40%</p>
                     </div>
+                    <Button variant="contained"
+        color="secondary" size="large"
+        style={{alignSelf:"center", marginTop:60}} 
+        href="/quizform">Start Quiz
+          </Button>
                 </header>
                 <footer>
                     <div className={classes.progress}>

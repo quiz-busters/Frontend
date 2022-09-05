@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import { useUserContext } from './context/UserContext';
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import Result from "./pages/Result";
 
 
 function App() {
@@ -48,6 +49,8 @@ console.log(data)
 
 
       <Route path="/*" element={<h1>Page not found!</h1>}/>
+      <Route path="/result" element={<Result name={name} score={score}/>} />
+
     </Routes>}
     </>
   );
