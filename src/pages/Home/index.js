@@ -16,6 +16,10 @@ function Home() {
     const { user } = useUserContext();
     const navigate = useNavigate();
 
+    const handlepage=()=>{
+        navigate("quizform");
+    }
+
     useEffect(() => {
         if (!user) {
             navigate('/login', {replace: true});
@@ -57,20 +61,28 @@ function Home() {
                         <p>Physics</p>
                         <p>You completed 40%</p>
                     </div>
-                    <Button variant="contained"
-        color="secondary" size="large"
-        style={{alignSelf:"center", marginTop:60}} 
-        href="/quizform">Start Quiz
-          </Button>
+                  
+                   
+
                 </header>
+              
                 <footer>
                     <div className={classes.progress}>
                         <div></div>
                     </div>
                     <div></div>
                 </footer>
+                
             </div>
+            <div>
+                    <Button variant="contained"
+        color="secondary"  className="start_btn" size="large"
+        style={{alignSelf:"center", marginTop:60}} 
+       onClick={handlepage}>Start Quiz
+          </Button>
+          </div>
             </main>
+            
             <Footer/>
         </div>
     )

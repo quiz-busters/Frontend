@@ -155,6 +155,13 @@
     height: 100%;
     border-radius: 5px;
 }
+.start_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
 
 
 
