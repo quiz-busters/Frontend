@@ -1,8 +1,13 @@
 import React from "react";
-import { Button, MenuItem, TextField } from "@material-ui/core";
+import { Button, MenuItem, TextField,Field } from "@material-ui/core";
 import "./quizform.css";
 
 const QuizForm=()=>{
+
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        alert("submit form")
+    }
 
     return(<>
       
@@ -15,28 +20,32 @@ const QuizForm=()=>{
             <TextField
               style={{ marginBottom: 25 }}
               label="Enter Your username"
-              variant="outlined"/>
+              variant="outlined" required/>
 
-           
-         
+            <TextField type="number" variant="outlined" label="number of question" 
+              style={{ marginBottom: 30 }}
+               InputProps={{
+                inputProps: {
+                 type: 'number',
+                 min: 5, max: 20,
+                },
+              }}
+               required />
+
 
               <TextField
               select
               label="Select Category"
               variant="outlined"
-              style={{ marginBottom: 30 }}
-           
-             >
-            
-            </TextField>
+              style={{ marginBottom: 30 }}>
+             </TextField>
 
             <TextField
               select
               label="Select Difficulty"
               variant="outlined"
-              style={{ marginBottom: 30 }}
-             
-            >
+              style={{ marginBottom: 30 }} >
+
               <MenuItem key="Easy" value="easy">
                 Easy
               </MenuItem>
@@ -51,11 +60,7 @@ const QuizForm=()=>{
             <Button
               variant="contained"
               color="primary"
-              size="large"
-            
-            >
-              Start Quiz
-            </Button>
+              size="large"  onClick={handleSubmit}> Start Quiz </Button>
           </div>
         </div>
         
