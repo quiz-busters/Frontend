@@ -21,10 +21,26 @@ export function UserContextProvider({children}) {
      }
 
 
-    const value = {
-        register
 
+
+    async function login(email, password) {
+        try {
+            console.log(email, password);
+            const res = await axios.post("http://localhost:5000/user/login", { email, password });
+            console.log(res.data);
+            localStorage.setItem("token", res.data.token)
+            setUser(res.data.user)
+        } catch (error) {
+            console.log(error?.response?.data)
+        }
+        
+     }
+
+    const value = {
+        register,
+        login
     };
+
 
     return <UserContext.Provider value={value}>
         {children} 
