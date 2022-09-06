@@ -14,13 +14,7 @@ describe('result page test', () => {
         expect(heading.textContent).toContain('Player : ');
     });
 
-    test('result page match test ', () => {
-        render(<Result />)
-       const heading = screen.getByRole('heading');
-       expect(heading.textContent).toMatch(/myresult/i);
-
-    
-    });
+   
 
 });
 

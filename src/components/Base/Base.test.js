@@ -5,8 +5,8 @@ describe('base component', () => {
 
     test('it tests the header', () => {
         render(<Base />)
-        const heading = screen.getByLabelText('header')
-        expect(heading.textContent).toContain('header');
+        const heading = screen.getByRole('heads')
+        expect(heading).toBeInTheDocument()
     });
 
 });

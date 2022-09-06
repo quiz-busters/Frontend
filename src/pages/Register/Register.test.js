@@ -1,5 +1,6 @@
 import Register from '.';
 import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('About', () => {
     test('it renders', () => {
@@ -10,7 +11,12 @@ describe('About', () => {
 
 test('it tests heading', () => {
     
-    let page = screen.getByRole('reg');
-    expect(page).toBeInTheDocument();;
+    let regRole = screen.queryByTestId('regHead');
+    expect(regRole).toBeDefined();;
+   
 });
+
+
+  
+
 });

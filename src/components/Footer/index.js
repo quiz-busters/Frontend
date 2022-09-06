@@ -14,16 +14,16 @@ function Footer() {
 
 
   return (
-    <footer className={classes.footer}>
-        <div onClick={() => {navigate('/')}}>
+    <footer role="foot" className={classes.footer}>
+        <div className="item" onClick={() => {navigate('/')}}>
             <IoMdTrophy color='#5342D6'/>
-            <p className={location.pathname == '/' && classes.active}>Play games</p>
+            <p data-testid ='play' className={location.pathname == '/' && classes.active}>Play games</p>
         </div>
-        <div onClick={() => {navigate('/leaderboard')}}>
+        <div className="item" onClick={() => {navigate('/leaderboard')}}>
             <FaMedal color='#5342D6'/>
             <p className={location.pathname == '/leaderboard' && classes.active}>Leaderboard</p>
         </div>
-        <div onClick={logout}>
+        <div className="item" onClick={logout}>
             <MdLogout color='#5342D6'/>
             <p>Logout</p>
         </div>

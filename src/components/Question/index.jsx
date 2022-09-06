@@ -45,24 +45,24 @@ const Question=({  currQues,
       alert("please select an option first!");
     }
   }
-  
+  /*
   const handleQuit=()=>{
 
   }
 
-
+*/
 
     return(
         <>
        
         <div className="question">
       
-       <h1 className="question">Question {currQues+1}</h1>
+       <h1 role="question" className="question">Question {currQues+1}</h1>
        <div className="singleQuestion">
         <h2>{questions[currQues].question}</h2>
 
         <div className="options">
-          {error && <h1>error: something went wrong!!</h1>}
+          {error && <h1>{alert("something went wrong!")}</h1>}
           {options && options.map(opt=>(
             
           <button onClick={()=>handleCheck(opt)} 
@@ -75,7 +75,7 @@ const Question=({  currQues,
         <div className="controls">
         <Button variant="contained" color="secondary" 
         size="large" style={{width:182}} href="/" 
-        onClick={handleQuit}>Quit</Button>
+        >Quit</Button>
 
         <Button variant="contained" color="primary" 
         size="large" style={{width:182}} 

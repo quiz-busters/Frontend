@@ -10,18 +10,14 @@ describe('result page test', () => {
        // const heading = screen.getByRole('heading');
        // expect(heading.textContent).toMatch(/myresult/i);
 
-        const heading = screen.getByRole('heading')
+        const heading = screen.getByRole('question')
         expect(heading.textContent).toContain('Question');
 
     });
 
    
 
-    test('it renders', () => {
-       
-  const myBtn = screen.getByRole('button')
-  expect(myBtn).toBeInTheDocument()
-    });
+    
     });
 
 

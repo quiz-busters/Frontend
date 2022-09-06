@@ -13,7 +13,7 @@ const Result=({name, score})=>{
     },[name, navigate]);*/
     
     return(
-        <div className="result">
+        <div role='btn' className="result">
         <h3 >Player : {name}</h3>
 
         <p className="title">Final Score : {score}</p>

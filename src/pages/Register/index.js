@@ -31,11 +31,11 @@ function Register() {
 
   return (
     <>
-    <div id="register">
-      <Base>
+    <div data-testid="regHead" id="register">
+      <Base >
         <div className={classes.container}>
-          <h1 aria-label='reg'>Register</h1>
-          <form
+          <h1 >Register</h1>
+          <form 
             onSubmit={(e) => {
               e.preventDefault()
               register(username, email, password, image);
@@ -54,6 +54,7 @@ function Register() {
             <Input
               type="email"
               placeholder="Email"
+              data-testid="email-input"
               Icon={MdEmail}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -61,6 +62,7 @@ function Register() {
             <Input
               type="password"
               placeholder="Password"
+
               Icon={MdLock}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
