@@ -32,24 +32,26 @@ const QuizForm=({name,setName,fetchQuestions})=>{
     };
     
     return(
-      <>
-        <div className="content">
+      <>        
+
+        <div aria-label="game-selection"  className="content">
 
         <div className="settings">
           <span style={{ fontSize: 30 }}>QUIZ TIME</span>
 
-          <div className="settings__select">
+          <div  className="settings__select">
             <TextField role="textbox"
-            aria-label="username"
+           
               style={{ marginBottom: 25 }}
               label="Enter Your username"
               variant="outlined"
               onChange={(e) => setName(e.target.value)} required/>
 
-            <TextField
+            <TextField 
               select
               label="Select Category"
               variant="outlined"
+              aria-label="category"
               style={{ marginBottom: 30 }}
               value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -94,11 +96,12 @@ const QuizForm=({name,setName,fetchQuestions})=>{
             >
               Start Quiz
             </Button>
+           
           </div>
         </div>
         
       </div>
-
+      
       </>
     )
 }
