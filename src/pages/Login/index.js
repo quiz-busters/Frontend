@@ -9,7 +9,7 @@ import { MdEmail } from 'react-icons/md';
 import { MdLock } from 'react-icons/md';
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const { login } = useUserContext();
@@ -21,15 +21,15 @@ function Login() {
         <form
           onSubmit={(e) => {
             e.preventDefault()
-            login(email, password)
+            login(username, password)
           }}
         >
           <Input
-            type="email"
+            type="username"
             placeholder="Email"
             Icon={MdEmail}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
           />
           <Input
             type="password"

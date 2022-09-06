@@ -10,10 +10,10 @@ export function UserContextProvider({children}) {
     const [userLoading, setUserLoading] = useState(true);
     const navigate = useNavigate();
 
-     async function register(name, email, password, image) {
+     async function register(username, email, password, image) {
         try {
-            console.log(name, email, password);
-            const res = await axios.post("http://localhost:5000/user/register", { name, email, password, image});
+            console.log(username, email, password);
+            const res = await axios.post("https://quiz-busters.herokuapp.com/register", { username, email, password, image});
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             setUser(res.data.user)
@@ -24,10 +24,10 @@ export function UserContextProvider({children}) {
         
      }
 
-    async function login(email, password) {
+    async function login(username, password) {
         try {
-            console.log(email, password);
-            const res = await axios.post("http://localhost:5000/user/login", { email, password });
+            console.log(username, password);
+            const res = await axios.post("https://quiz-busters.herokuapp.com/login", { username, password });
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             setUser(res.data.user);
@@ -41,7 +41,7 @@ export function UserContextProvider({children}) {
      async function getCurrentUser() {
         try {
           
-            const res = await axios.get("http://localhost:5000/user/currentUser", {
+            const res = await axios.get("https://quiz-busters.herokuapp.com/users", {
                 headers: {
                     Authorization: localStorage.getItem('token')
                 }

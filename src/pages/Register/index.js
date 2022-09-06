@@ -11,7 +11,7 @@ import axios from 'axios';
 import Button from '../../components/Button';
 
 function Register() {
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,14 +37,17 @@ function Register() {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              register(name, email, password, image)
+              register(username, email, password, image);
+             
+          
+
             }}
           >
             <Input
               type="text"
               placeholder="Name"
               Icon={BsFillPersonFill}
-              value={name}
+              value={username}
               onChange={(e) => setName(e.target.value)}
             />
             <Input

@@ -12,6 +12,8 @@ const QuizForm=({name,setName,fetchQuestions})=>{
 
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
+   // const [type, settype] = useState("");
+
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
@@ -58,6 +60,8 @@ const QuizForm=({name,setName,fetchQuestions})=>{
               ))}
             </TextField>
 
+           
+
             <TextField
               select
               label="Select Difficulty"
@@ -76,6 +80,10 @@ const QuizForm=({name,setName,fetchQuestions})=>{
                 Hard
               </MenuItem>
             </TextField>
+
+          
+
+           
 
             <Button
               variant="contained"
