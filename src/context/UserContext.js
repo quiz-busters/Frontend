@@ -30,7 +30,9 @@ export function UserContextProvider({children}) {
             const res = await axios.post("https://quiz-busters.herokuapp.com/login", { username, password });
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
-            setUser(res.data.user);
+            
+            setUser(res.data.username);
+           
             navigate('/');
         } catch (error) {
             console.log(error?.response?.data)
@@ -41,7 +43,7 @@ export function UserContextProvider({children}) {
      async function getCurrentUser() {
         try {
           
-            const res = await axios.get("https://quiz-busters.herokuapp.com/users", {
+            const res = await axios.get("https://quiz-busters.herokuapp.com/currentUser", {
                 headers: {
                     Authorization: localStorage.getItem('token')
                 }

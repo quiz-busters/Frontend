@@ -26,7 +26,7 @@ function Login() {
         >
           <Input
             type="username"
-            placeholder="Email"
+            placeholder="username"
             Icon={MdEmail}
             value={username}
             onChange={(e) => setUserName(e.target.value)}
