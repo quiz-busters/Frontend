@@ -15,3 +15,8 @@
     color: #AFAFAF;
     font-size: 24px;
 }
+
+.container svg {
+    width: 27px;
+    height: 27px;
+}

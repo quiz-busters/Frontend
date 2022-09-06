@@ -13,7 +13,7 @@ export function UserContextProvider({children}) {
      async function register(username, email, password, image) {
         try {
             console.log(username, email, password);
-            const res = await axios.post("https://quiz-busters.herokuapp.com/register", { username, email, password, image});
+            const res = await axios.post("/register", { username, email, password, image});
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             setUser(res.data.user)
@@ -27,7 +27,7 @@ export function UserContextProvider({children}) {
     async function login(username, password) {
         try {
             console.log(username, password);
-            const res = await axios.post("https://quiz-busters.herokuapp.com/login", { username, password });
+            const res = await axios.post("/login", { username, password });
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             
@@ -43,12 +43,12 @@ export function UserContextProvider({children}) {
      async function getCurrentUser() {
         try {
           
-            const res = await axios.get("https://quiz-busters.herokuapp.com/currentUser", {
+            const res = await axios.get("/currentUser", {
                 headers: {
-                    Authorization: localStorage.getItem('token')
+                    Authorization: localStorage.getItem('token')?.split(" ")[1]
                 }
             });
-            console.log(res.data);
+            console.log("currentUser",res.data);
             setUser(res.data);
         } catch (error) {
             console.log(error?.response?.data)
@@ -56,10 +56,16 @@ export function UserContextProvider({children}) {
         setUserLoading(false);
      }
 
+     function logout() {
+        localStorage.removeItem('token')
+        setUser(null);
+     }
+
     const value = {
         register,
         login,
         getCurrentUser,
+        logout,
         userLoading,
         user
     };

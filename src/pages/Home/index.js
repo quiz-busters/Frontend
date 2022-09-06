@@ -24,7 +24,7 @@ function Home() {
         if (!user) {
             navigate('/login', {replace: true});
         }
-    }, []);
+    }, [user]);
 
 
     return(

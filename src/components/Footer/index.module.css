@@ -1,6 +1,8 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    color: #AFAFAF;
+    font-weight: bold;
 }
 
 .footer div {
@@ -10,7 +12,16 @@
     font-size: 16px;
 }
 
+.footer div p {
+    
+}
+
 .footer div svg {
     width: 40px;
     height: 40px;
+}
+
+.active {
+    font-weight: bold;
+    color: black;
 }

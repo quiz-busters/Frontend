@@ -3,6 +3,7 @@ import { Quiz, QuizForm } from "./pages";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Leaderboard from "./pages/Leaderboard";
 import { useUserContext } from './context/UserContext';
 import { useEffect, useState } from "react";
 import axios from 'axios';
@@ -47,7 +48,7 @@ console.log(data)
               setScore={setScore}
               setQuestions={setQuestions}/>}/>
 
-
+      <Route path="/leaderboard" element={<Leaderboard/>}/>
       <Route path="/*" element={<h1>Page not found!</h1>}/>
       <Route path="/result" element={<Result name={name} score={score}/>} />
 
