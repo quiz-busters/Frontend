@@ -4,17 +4,19 @@ import { useNavigate } from "react-router-dom";
 import './result.css'
 const Result=({name, score})=>{
 
-    const navigate=useNavigate();
+    /*const navigate=useNavigate();
 
     useEffect(()=>{
         if(!name){
             navigate("/");
         }
-    },[name, navigate]);
+    },[name, navigate]);*/
     
     return(
-        < div className="result">
-        <span className="title">Final Score : {score}</span>
+        <div className="result">
+        <h3 >Player : {name}</h3>
+
+        <p className="title">Final Score : {score}</p>
         
         <Button variant="contained"
         color="secondary" size="large"
@@ -22,6 +24,7 @@ const Result=({name, score})=>{
         href="/">Go To Homepage
           </Button>
         </div>
+        
     )
 }
 export default Result

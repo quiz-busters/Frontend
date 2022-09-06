@@ -39,7 +39,8 @@ const QuizForm=({name,setName,fetchQuestions})=>{
           <span style={{ fontSize: 30 }}>QUIZ TIME</span>
 
           <div className="settings__select">
-            <TextField
+            <TextField role="textbox"
+            aria-label="username"
               style={{ marginBottom: 25 }}
               label="Enter Your username"
               variant="outlined"
