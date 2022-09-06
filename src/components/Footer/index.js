@@ -11,7 +11,7 @@ function Footer() {
   const { logout } = useUserContext();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location)
+
 
   return (
     <footer className={classes.footer}>

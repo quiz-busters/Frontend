@@ -31,9 +31,10 @@ function Register() {
 
   return (
     <>
+    <div id="register">
       <Base>
         <div className={classes.container}>
-          <h1>Register</h1>
+          <h1 aria-label='reg'>Register</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault()
@@ -78,6 +79,7 @@ function Register() {
           </form>
         </div>
       </Base>
+      </div>
     </>
   )
 }

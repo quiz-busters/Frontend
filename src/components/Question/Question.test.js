@@ -17,7 +17,11 @@ describe('result page test', () => {
 
    
 
-    
+    test('it renders', () => {
+       
+  const myBtn = screen.getByRole('button')
+  expect(myBtn).toBeInTheDocument()
+    });
     });
 
 
