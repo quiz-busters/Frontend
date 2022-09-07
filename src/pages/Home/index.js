@@ -77,21 +77,31 @@ function Home() {
                 </footer>
                 
             </div>
+
+            <div className={classes.newGame}>
             <div>
-                    <Button variant="contained"
+              <Button variant="contained"
         color="secondary"  className="start_btn" size="large"
         style={{alignSelf:"center", marginTop:60}} 
        onClick={handlepage}>Start Quiz
           </Button>
           </div>
+          </div>
 
+
+         
           <div>
-                    <Button variant="contained"
+          <div className={classes.newGame}>
+            <Button variant="contained"
         color="secondary"  className="start_btn" size="large"
         style={{alignSelf:"center", marginTop:60}} 
        onClick={handlMultiPlayer}>MultiPlayer
           </Button>
           </div>
+          </div>
+          <br></br> 
+          
+
             </main>
             
             <Footer/>

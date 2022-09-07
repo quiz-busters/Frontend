@@ -1,4 +1,4 @@
-import classes from './style.css';
+import classes from './lobby.module.css';
 import { IoMdEye } from 'react-icons/io';
 import { MdPlayCircle } from 'react-icons/md'; 
 import { MdOutlineQuiz } from 'react-icons/md';
@@ -43,26 +43,42 @@ function Lobby() {
                 <div>
                     <IoMdTrophy color='white'/>
                 </div>
-                <div aria-label='score' >
-                    <p>User1</p>
+                <div  >
+                    <p>Player1</p><br></br>
                     <p>Score:0 </p>
                 </div>
-                <div aria-label='score' >
-                    <p>User2</p>
-                    <p>Score:0 </p>
-                </div>
-               
-            </div>
-
-           
-            <div>
+                <div>
                     <Button variant="contained"
-        color="secondary"  className="start_btn" size="large"
-        style={{alignSelf:"center", marginTop:60}} 
+        color="secondary"  size="large"
+        style={{alignSelf:"center"}} 
        onClick={handlepage}>Start Quiz
           </Button>
           </div>
 
+            </div>
+
+
+
+            <div className={classes.scoreContainer}>
+                <div>
+                    <IoMdTrophy color='white'/>
+                </div>
+                <div >
+                    <p>Player2</p><br></br>
+                    <p>Score:0 </p>
+                </div>
+                
+                <div>
+                    <Button variant="contained"
+        color="secondary"  size="large"
+        style={{alignSelf:"center"}} 
+       onClick={handlepage}>Start Quiz
+          </Button>
+          </div>
+            </div>
+
+           
+         
         
             </main>
             

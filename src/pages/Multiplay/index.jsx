@@ -40,10 +40,17 @@ const Multiplay=()=>{
 <TextField 
            
            style={{ marginBottom: 25 }}
-           label="enter username"
+           label="enter first player's username"
            variant="outlined"
           required/>
 
+<TextField 
+           
+           style={{ marginBottom: 25 }}
+           label="enter second player's username"
+           variant="outlined"
+          required/>
+          
             <Button
               variant="contained"
               color="primary"
