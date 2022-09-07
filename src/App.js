@@ -18,6 +18,11 @@ function App() {
   const [questions, setQuestions] = useState();
   const [name, setName] = useState();
   const [score, setScore] = useState(0);
+  // const [player1,setPlayer1] = useState()
+  const [player,setPlayer] = useState({
+    player1: "",
+    player2:""
+  })
 
 
 const fetchQuestions = async (category = "", difficulty = "") => {
@@ -50,14 +55,14 @@ console.log(data)
               setQuestions={setQuestions}/>}/>
 
       <Route path="/leaderboard" element={<Leaderboard/>}/>
-      <Route path="/lobby" element={<Lobby/>}/>
-      <Route path="/multiplay" element={<Multiplay/>}/>
+      <Route path="/lobby" element={<Lobby setName={setName} setScore={setScore} player={player}/>}/>
+      <Route path="/multiplay" element={<Multiplay setPlayer={setPlayer} />}/>
       <Route path="/multiquiz" element={<MultiplayQuiz name={name}
               questions={questions}
               score={score}
               setScore={setScore}
               setQuestions={setQuestions}/>}/>
-      <Route path="/multiplayform" element={<MultiplayQuizForm name="player" fetchQuestions={fetchQuestions}/>}/>
+      <Route path="/multiplayform" element={<MultiplayQuizForm name={name} fetchQuestions={fetchQuestions}/>}/>
       <Route path="/*" element={<h1>Page not found!</h1>}/>
       <Route path="/result" element={<Result name={name} score={score}/>} />
 

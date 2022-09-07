@@ -5,19 +5,29 @@ import Profile from '../../images/profile.png';
 import { MdStars } from 'react-icons/md';
 import ScoreBoardSection from '../../components/ScoreBoardSection';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 function Leaderboard() {
 
     const { user } = useUserContext();
     const navigate = useNavigate();
+    const [ users, setUsers ] = useState([]);
 
     useEffect(() => {
         if (!user) {
             navigate('/login', {replace: true});
         }
     }, [user]);
+
+    useEffect(() => {
+        ( async () => {
+            const res = await axios.get("/users")
+            console.log(res.data)
+            setUsers(res.data.users)
+        })()
+    }, []);
 
     return(
         <div  aria-label="board"  className={classes.container}>
@@ -29,15 +39,12 @@ function Leaderboard() {
                 <h2>{user?.username}</h2>
                 <div className={classes.headerScore}>
                     <div><MdStars color="#FFD700"/></div>
-                    <p>1267</p>
+                    <p>{user?.score}</p>
                 </div>
                 </header>
                 <section className={classes.scoreBoard}>
                     <h3  data-testid='leadTitle'>Leaderboard</h3>
-                    <ScoreBoardSection user={user}/>
-                    <ScoreBoardSection user={user}/>
-                    <ScoreBoardSection user={user}/>
-                    <ScoreBoardSection user={user}/>
+                    {users.map((user, index) => <ScoreBoardSection position={index+1} key={user._id} user={user}/>)}
                 </section>
             </main>
         <Footer/>

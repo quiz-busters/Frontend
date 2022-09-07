@@ -1,11 +1,15 @@
 import { Button } from "@material-ui/core";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import './result.css'
 import { useUserContext } from '../../context/UserContext';
+import axios from "axios";
 
 const Result=({name, score})=>{
     const { playerScore } = useUserContext();
+    console.log(name)
+    const navigate = useNavigate()
+    const {user} = useUserContext()
 
     /*const navigate=useNavigate();
 
@@ -14,6 +18,13 @@ const Result=({name, score})=>{
             navigate("/");
         }
     },[name, navigate]);*/
+
+    // useEffect(()=>{
+    //    (async() => {
+    //         const res = await axios.post(`/${name}/score`, { score });
+    //         console.log(res.data)
+    //    })()
+    // },[]);
     
     return(
         <div role='btn' className="result">
@@ -25,9 +36,11 @@ const Result=({name, score})=>{
             variant="contained"
         color="secondary" size="large"
         style={{alignSelf:"center", marginTop:60}} 
-        href="/lobby"  onClick={(e) => {
+          onClick={(e) => {
            
-            playerScore(name, score) } }>Go To Homepage
+            playerScore(name, score);
+                navigate(`/lobby?username1=${user?.username}&username2=${name}`)
+            } }>Go To Homepage
           </Button>
         </div>
         

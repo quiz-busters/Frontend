@@ -9,6 +9,7 @@ import "./multiplayform.css";
 
 
 const MultiplayQuizForm=({name,fetchQuestions})=>{
+  console.log("PLAYER", name);
 
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");

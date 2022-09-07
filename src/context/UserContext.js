@@ -33,7 +33,7 @@ export function UserContextProvider({children}) {
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             
-            setUser(res.data.username);
+            setUser(res.data);
            
             navigate('/');
         } catch (error) {

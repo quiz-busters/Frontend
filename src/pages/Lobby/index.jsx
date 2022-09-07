@@ -7,17 +7,28 @@ import Footer from '../../components/Footer';
 import { useUserContext } from '../../context/UserContext';
 import Profile from '../../images/profile.png';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import axios from 'axios';
+import { useState } from 'react';
 
 
-function Lobby() {
+function Lobby({setName, setScore, player}) {
 
     const { user } = useUserContext();
+    const [player2, setPlayer2] = useState();
     const navigate = useNavigate();
+    const [params, setParams] = useSearchParams();
 
-    const handlepage=()=>{
+
+    console.log(params.get("username1"));
+    console.log(params.get("username2"));
+   
+    setScore(0)
+
+    const handlepage=(username)=>{
         navigate("/multiplayform");
+        setName(username)
     }
   
     useEffect(() => {
@@ -26,6 +37,22 @@ function Lobby() {
         }
     }, [user]);
 
+    useEffect(() => {
+        setParams({
+            username1: user?.username,
+            username2:player.player2 || params.get("username2")
+        })
+    },[player])
+
+    useEffect(() => {
+        console.log("params changed", params.get("username2"));
+        ( async () => {
+            const res = await axios.get(`http://localhost:3000/users/${params.get("username2")}`)
+            console.log(res.data)
+            setPlayer2(res.data)
+        })()
+    }, [params.get("username2")]);
+
 
     return(
         
@@ -33,7 +60,7 @@ function Lobby() {
             <main className={classes.main}>
             <header className={classes.header}>
                 <div className={classes.leftHeader}>
-                    <p>Hey {user?.name},</p>
+                    <p>Hey {user?.username},</p>
                     <p>Let's play a game!</p>
                 </div>
                
@@ -44,14 +71,14 @@ function Lobby() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div  >
-                    <p>Player1</p><br></br>
-                    <p>Score:0 </p>
+                    <p>{user?.username}</p><br></br>
+                    <p>Score:{user?.score} </p>
                 </div>
                 <div>
                     <Button variant="contained"
         color="secondary"  size="large"
         style={{alignSelf:"center"}} 
-       onClick={handlepage}>Start Quiz
+       onClick={() => handlepage(user?.username)}>Start Quiz
           </Button>
           </div>
 
@@ -64,15 +91,15 @@ function Lobby() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div >
-                    <p>Player2</p><br></br>
-                    <p>Score:0 </p>
+                    <p>{player2?.username}</p><br></br>
+                    <p>Score:{player2?.score} </p>
                 </div>
                 
                 <div>
                     <Button variant="contained"
         color="secondary"  size="large"
         style={{alignSelf:"center"}} 
-       onClick={handlepage}>Start Quiz
+       onClick={() => handlepage(player2?.username)}>Start Quiz
           </Button>
           </div>
             </div>
