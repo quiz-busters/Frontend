@@ -47,7 +47,7 @@ function Lobby({setName, setScore, player}) {
     useEffect(() => {
         console.log("params changed", params.get("username2"));
         ( async () => {
-            const res = await axios.get(`http://localhost:3000/users/${params.get("username2")}`)
+            const res = await axios.get(`https://quiz-busters.herokuapp.com/users/${params.get("username2")}`)
             console.log(res.data)
             setPlayer2(res.data)
         })()
@@ -84,8 +84,6 @@ function Lobby({setName, setScore, player}) {
 
             </div>
 
-
-
             <div className={classes.scoreContainer}>
                 <div>
                     <IoMdTrophy color='white'/>
@@ -104,7 +102,7 @@ function Lobby({setName, setScore, player}) {
           </div>
             </div>
 
-           
+
          
         
             </main>

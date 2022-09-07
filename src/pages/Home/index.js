@@ -49,34 +49,15 @@ function Home() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div aria-label='score' >
-                    <p>1257</p>
-                    <p>Your score</p>
+                    <p>Your Score : {user.score}</p>
+                    
                 </div>
                 <div>
                     <IoMdEye color='#FF7A00'/>
                 </div>
             </div>
 
-            <div className={classes.newGame}>
-                <header>
-                    <div><MdOutlineQuiz color='white'/></div>
-                    <div>
-                        <p>Physics</p>
-                        <p>You completed 40%</p>
-                    </div>
-                  
-                   
-
-                </header>
-              
-                <footer>
-                    <div className={classes.progress}>
-                        <div></div>
-                    </div>
-                    <div></div>
-                </footer>
-                
-            </div>
+            
 
             <div className={classes.newGame}>
             <div>
