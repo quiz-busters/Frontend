@@ -36,7 +36,7 @@ function Home() {
             <main className={classes.main}>
             <header className={classes.header}>
                 <div className={classes.leftHeader}>
-                    <p>Hey {user?.name},</p>
+                    <p>Hey {user?.username},</p>
                     <p>Let's play a game!</p>
                 </div>
                 <div className={classes.rightHeader}>

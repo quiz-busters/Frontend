@@ -8,7 +8,7 @@ export function UserContextProvider({children}) {
 
     const [user, setUser] = useState(null);
     const [userLoading, setUserLoading] = useState(true);
-    const [score, setScore] = useState(4);
+    const [myscore, setScore] = useState(4);
 
     const navigate = useNavigate();
 
@@ -47,11 +47,12 @@ export function UserContextProvider({children}) {
         try {
            
             const res = await axios.post(`/${username}/score`, { score});
-            //setScore(res.score);
 
-            console.log("uername and score- "+username, score);
-            console.log("res"+ res);
-            console.log("score: "+score);
+            console.log("uername and score- "+res.username, res.myscore);
+            console.log("res"+ res.data);
+            console.log("score: "+res.score);
+            setScore(res.myscore);
+
          
            
         } catch (error) {
