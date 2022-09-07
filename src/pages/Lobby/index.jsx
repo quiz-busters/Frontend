@@ -33,7 +33,7 @@ function Lobby() {
             <main className={classes.main}>
             <header className={classes.header}>
                 <div className={classes.leftHeader}>
-                    <p>Hey {user?.name},</p>
+                    <p>Hey {user?.username}</p>
                     <p>Let's play a game!</p>
                 </div>
                
@@ -44,7 +44,7 @@ function Lobby() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div  >
-                    <p>Player1</p><br></br>
+                    <p>{user?.username}</p><br></br>
                     <p>Score:0 </p>
                 </div>
                 <div>

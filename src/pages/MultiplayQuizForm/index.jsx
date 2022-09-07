@@ -8,7 +8,7 @@ import "./multiplayform.css";
 
 
 
-const MultiplayQuizForm=({name,fetchQuestions})=>{
+const MultiplayQuizForm=({username,fetchQuestions})=>{
 
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
@@ -19,7 +19,7 @@ const MultiplayQuizForm=({name,fetchQuestions})=>{
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-      if (!category || !difficulty || !name) {
+      if (!category || !difficulty ) {
         setError(true);
         alert("Please select all the option!")
         return;
@@ -38,6 +38,7 @@ const MultiplayQuizForm=({name,fetchQuestions})=>{
 
         <div className="settings">
           <span style={{ fontSize: 30 }}>QUIZ TIME</span>
+          <p>Player: {username}</p>
 
           <div  className="settings__select">
         

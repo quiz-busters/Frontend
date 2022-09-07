@@ -1,17 +1,8 @@
 import React from "react";
-import { Button, MenuItem, TextField } from "@material-ui/core";
-import { useState } from "react";
+import { Button, TextField } from "@material-ui/core";
 import {useNavigate} from 'react-router-dom';
 
-
-
-
 const Multiplay=()=>{
-
-   
-   
-
-    const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 

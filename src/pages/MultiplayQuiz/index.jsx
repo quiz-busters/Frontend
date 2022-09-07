@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import MultiplayQuestion from "../../components/MultiplayQuestion";
 import './multiQuiz.css'
 
-const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
+const MultiplayQuiz=({username, questions, score, setScore,setQuestions})=>{
 
     const [options, setOptions] = useState();
     const [currQues, setCurrQues] = useState(0);
@@ -26,7 +26,7 @@ const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
     return(<>
     
      <div aria-label='quiz' className="quiz"> 
-        <span className="subtitle">Welcome {name}</span>
+        <span className="subtitle">Welcome {username}</span>
 
       {questions ? <>
       <div className="quizInfo">

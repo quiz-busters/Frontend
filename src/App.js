@@ -16,7 +16,7 @@ import MultiplayQuiz from "./pages/MultiplayQuiz";
 function App() {
 
   const [questions, setQuestions] = useState();
-  const [name, setName] = useState();
+  const [username, setUsername] = useState();
   const [score, setScore] = useState(0);
 
 
@@ -42,8 +42,8 @@ console.log(data)
       <Route path="/" element={<Home/>}/> 
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/quizform" element={<QuizForm name={name} setName={setName} fetchQuestions={fetchQuestions}/>}/>
-      <Route path="/quiz" element={<Quiz name={name}
+      <Route path="/quizform" element={<QuizForm username={username} setUsername={setUsername} fetchQuestions={fetchQuestions}/>}/>
+      <Route path="/quiz" element={<Quiz username={username}
               questions={questions}
               score={score}
               setScore={setScore}
@@ -52,14 +52,14 @@ console.log(data)
       <Route path="/leaderboard" element={<Leaderboard/>}/>
       <Route path="/lobby" element={<Lobby/>}/>
       <Route path="/multiplay" element={<Multiplay/>}/>
-      <Route path="/multiquiz" element={<MultiplayQuiz name={name}
+      <Route path="/multiquiz" element={<MultiplayQuiz username={username}
               questions={questions}
               score={score}
               setScore={setScore}
               setQuestions={setQuestions}/>}/>
-      <Route path="/multiplayform" element={<MultiplayQuizForm name="player" fetchQuestions={fetchQuestions}/>}/>
+      <Route path="/multiplayform" element={<MultiplayQuizForm name={username} fetchQuestions={fetchQuestions}/>}/>
       <Route path="/*" element={<h1>Page not found!</h1>}/>
-      <Route path="/result" element={<Result name={name} score={score}/>} />
+      <Route path="/result" element={<Result username={username} score={score}/>} />
 
     </Routes>}
     </>

@@ -8,7 +8,7 @@ import "./quizform.css";
 
 
 
-const QuizForm=({name,setName,fetchQuestions})=>{
+const QuizForm=({username,setUsername,fetchQuestions})=>{
 
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
@@ -19,7 +19,7 @@ const QuizForm=({name,setName,fetchQuestions})=>{
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-      if (!category || !difficulty || !name) {
+      if (!category || !difficulty || !username) {
         setError(true);
         alert("Please select all the option!")
         return;
@@ -45,7 +45,7 @@ const QuizForm=({name,setName,fetchQuestions})=>{
               style={{ marginBottom: 25 }}
               label="Enter Your username"
               variant="outlined"
-              onChange={(e) => setName(e.target.value)} required/>
+              onChange={(e) => setUsername(e.target.value)} required/>
 
             <TextField 
               select
@@ -69,7 +69,7 @@ const QuizForm=({name,setName,fetchQuestions})=>{
               select
               label="Select Difficulty"
               variant="outlined"
-              aria-label="difficulty type"
+              role="difficulty type"
               style={{ marginBottom: 30 }}
               value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Question from "../../components/Question";
 import './quiz.css'
 
-const Quiz=({name, questions, score, setScore,setQuestions})=>{
+const Quiz=({username, questions, score, setScore,setQuestions})=>{
 
     const [options, setOptions] = useState();
     const [currQues, setCurrQues] = useState(0);
@@ -26,7 +26,7 @@ const Quiz=({name, questions, score, setScore,setQuestions})=>{
     return(<>
     
      <div aria-label='quiz' className="quiz"> 
-        <span className="subtitle">Welcome {name}</span>
+        <span className="subtitle">Welcome {username}</span>
 
       {questions ? <>
       <div className="quizInfo">

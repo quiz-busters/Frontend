@@ -1,11 +1,16 @@
 import { Button } from "@material-ui/core";
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import './result.css'
 import { useUserContext } from '../../context/UserContext';
 
-const Result=({name, score})=>{
+const Result=({username, score})=>{
+
+
+    const { user } = useUserContext();
+
     const { playerScore } = useUserContext();
+    console.log("username "+user?.username);
+    console.log("score "+score);
 
     /*const navigate=useNavigate();
 
@@ -17,17 +22,17 @@ const Result=({name, score})=>{
     
     return(
         <div role='btn' className="result">
-        <h3 >Player : {name}</h3>
+        <h3 >Player : {user?.username}</h3>
 
         <p className="title">Final Score : {score}</p>
-        
+       
         <Button 
             variant="contained"
         color="secondary" size="large"
         style={{alignSelf:"center", marginTop:60}} 
         href="/lobby"  onClick={(e) => {
            
-            playerScore(name, score) } }>Go To Homepage
+            playerScore(user?.username, score) } }>Go To Homepage
           </Button>
         </div>
         
