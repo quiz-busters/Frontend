@@ -62,7 +62,7 @@ const Question=({  currQues,
         <h2>{questions[currQues].question}</h2>
 
         <div className="options">
-          {error && <h1>{alert("something went wrong!")}</h1>}
+          {error && <p role='alert'>something went wrong!</p>}
           {options && options.map(opt=>(
             
           <button onClick={()=>handleCheck(opt)} 

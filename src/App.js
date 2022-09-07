@@ -8,6 +8,8 @@ import { useUserContext } from './context/UserContext';
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import Result from "./pages/Result";
+import Lobby from "./pages/Lobby";
+import Multiplay from "./pages/Multiplay";
 
 
 function App() {
@@ -33,8 +35,6 @@ console.log(data)
     getCurrentUser();
   }, []);
 
-
-
   return (
     <>
     {userLoading ? <p>Loading</p> : <Routes>
@@ -49,6 +49,9 @@ console.log(data)
               setQuestions={setQuestions}/>}/>
 
       <Route path="/leaderboard" element={<Leaderboard/>}/>
+      <Route path="/lobby" element={<Lobby/>}/>
+      <Route path="/multiplay" element={<Multiplay/>}/>
+
       <Route path="/*" element={<h1>Page not found!</h1>}/>
       <Route path="/result" element={<Result name={name} score={score}/>} />
 

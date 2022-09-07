@@ -1,4 +1,4 @@
-import classes from './index.module.css';
+import classes from './style.css';
 import { IoMdEye } from 'react-icons/io';
 import { MdPlayCircle } from 'react-icons/md'; 
 import { MdOutlineQuiz } from 'react-icons/md';
@@ -11,18 +11,15 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
 
-function Home() {
+function Lobby() {
 
     const { user } = useUserContext();
     const navigate = useNavigate();
 
     const handlepage=()=>{
-        navigate("quizform");
+        navigate("/quizform");
     }
-    const handlMultiPlayer =()=>{
-        navigate("multiplay");
-    }
-
+  
     useEffect(() => {
         if (!user) {
             navigate('/login', {replace: true});
@@ -39,9 +36,7 @@ function Home() {
                     <p>Hey {user?.name},</p>
                     <p>Let's play a game!</p>
                 </div>
-                <div className={classes.rightHeader}>
-                    <img src={user?.image && user?.image != "false" ? user?.image : Profile} />
-                </div>
+               
             </header>
 
             <div className={classes.scoreContainer}>
@@ -49,34 +44,17 @@ function Home() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div aria-label='score' >
-                    <p>1257</p>
-                    <p>Your score</p>
+                    <p>User1</p>
+                    <p>Score:0 </p>
                 </div>
-                <div>
-                    <IoMdEye color='#FF7A00'/>
+                <div aria-label='score' >
+                    <p>User2</p>
+                    <p>Score:0 </p>
                 </div>
+               
             </div>
 
-            <div className={classes.newGame}>
-                <header>
-                    <div><MdOutlineQuiz color='white'/></div>
-                    <div>
-                        <p>Physics</p>
-                        <p>You completed 40%</p>
-                    </div>
-                  
-                   
-
-                </header>
-              
-                <footer>
-                    <div className={classes.progress}>
-                        <div></div>
-                    </div>
-                    <div></div>
-                </footer>
-                
-            </div>
+           
             <div>
                     <Button variant="contained"
         color="secondary"  className="start_btn" size="large"
@@ -85,13 +63,7 @@ function Home() {
           </Button>
           </div>
 
-          <div>
-                    <Button variant="contained"
-        color="secondary"  className="start_btn" size="large"
-        style={{alignSelf:"center", marginTop:60}} 
-       onClick={handlMultiPlayer}>MultiPlayer
-          </Button>
-          </div>
+        
             </main>
             
             <Footer/>
@@ -99,4 +71,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default Lobby

@@ -25,7 +25,7 @@ const Quiz=({name, questions, score, setScore,setQuestions})=>{
 
     return(<>
     
-     <div className="quiz"> 
+     <div aria-label='quiz' className="quiz"> 
         <span className="subtitle">Welcome {name}</span>
 
       {questions ? <>

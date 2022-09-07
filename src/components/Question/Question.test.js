@@ -15,6 +15,12 @@ describe('result page test', () => {
 
     });
 
+    test('test alert role', () => {
+       
+    let error = screen.getByRole('alert')
+    expect(error.textContent).toContain("something went wrong!");
+
+    });
    
 
     

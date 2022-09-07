@@ -20,7 +20,7 @@ function Leaderboard() {
     }, [user]);
 
     return(
-        <div className={classes.container}>
+        <div  aria-label="board"  className={classes.container}>
             <main className={classes.main}>
                 <header className={classes.header}>
                 <div className={classes.userImage}>
@@ -33,7 +33,7 @@ function Leaderboard() {
                 </div>
                 </header>
                 <section className={classes.scoreBoard}>
-                    <h3>Leaderboard</h3>
+                    <h3  data-testid='leadTitle'>Leaderboard</h3>
                     <ScoreBoardSection user={user}/>
                     <ScoreBoardSection user={user}/>
                     <ScoreBoardSection user={user}/>

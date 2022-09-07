@@ -17,8 +17,8 @@ function Login() {
   return (
     <Base>
       <div className={classes.container}>
-        <h1>Login</h1>
-        <form
+        <h1 title='Login'> Login</h1>
+        <form 
           onSubmit={(e) => {
             e.preventDefault()
             login(username, password)

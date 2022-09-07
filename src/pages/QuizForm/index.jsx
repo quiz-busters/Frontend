@@ -69,6 +69,7 @@ const QuizForm=({name,setName,fetchQuestions})=>{
               select
               label="Select Difficulty"
               variant="outlined"
+              aria-label="difficulty type"
               style={{ marginBottom: 30 }}
               value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}

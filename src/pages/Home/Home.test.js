@@ -1,18 +1,25 @@
-import Home from '.';
 import React from 'react';
 
-import { screen, render, waitFor } from '@testing-library/react';
+import { default as Home } from ".";
 
-import * as router from 'react-router'
-import * as userEvent from '@testing-library/user-event'
-import { withRouter } from 'react-router-dom';
+import { screen, render } from '@testing-library/react';
 
-describe('Home', () => {
+describe('quizform page test', () => {
 
-  const user = userEvent.setup()
-  const navigate = jest.fn()
+    test('question page renders', () => {
+        render(<Home />)
+      
+  test("test home", () => {
+    let form = screen.getByLabel("home");
+    expect(form).toBeInTheDocument();
+  });
 
-  beforeEach(() => {
-    jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate)
-  })
+  test("label score test", () => { 
+   // let testIds = screen.queryByTestId('leadTitle');
+ //expect(testIds).toBeDefined();;
+ let form = screen.getByLabel("score");
+ expect(form).toBeInTheDocument();
+  });
+
+})
 })

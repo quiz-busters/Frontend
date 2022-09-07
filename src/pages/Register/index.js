@@ -17,7 +17,7 @@ function Register() {
 
   const { register } = useUserContext();
   const [image, setImage] = useState(false);
-  const [file, setFile] = useState(null);
+//  const [file, setFile] = useState(null);
 
   async function uploadImage(e) {
     const file = e.target.files[0];
@@ -39,9 +39,6 @@ function Register() {
             onSubmit={(e) => {
               e.preventDefault()
               register(username, email, password, image);
-             
-          
-
             }}
           >
             <Input

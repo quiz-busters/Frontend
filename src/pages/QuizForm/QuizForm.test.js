@@ -21,10 +21,6 @@ describe('quizform page test', () => {
 
  
 
-  test("it renders difficulty types", () => {
-    let numberOfQuestionsInput = screen.getByLabelText("difficulty type");
-    expect(numberOfQuestionsInput).toBeInTheDocument();
-  });
   
     });
     
