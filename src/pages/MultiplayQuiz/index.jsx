@@ -1,6 +1,7 @@
 import { CircularProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MultiplayQuestion from "../../components/MultiplayQuestion";
+import Timer from "../../components/Timer";
 import './multiQuiz.css'
 
 const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
@@ -18,7 +19,14 @@ const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
     );
   }, [questions,currQues]);
 
-
+  // const [message, setMessage] = useState('');
+  const setStop = () => {
+    setCurrQues((prev) => {
+      if (prev < 5) {
+        return prev + 1
+      }
+    })
+  }
   const handleShuffle = (options) => {
     return options.sort(() => Math.random() - 0.5);
   };
@@ -33,7 +41,9 @@ const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
         <span>{questions[currQues].category}</span>
         <span>Score: {score}</span>
         </div>
-
+        <div className="timer">
+          <Timer setStop={() => setStop ()} currQues={currQues}/>
+          </div>
         <MultiplayQuestion
           currQues={currQues}
           setCurrQues={setCurrQues}
