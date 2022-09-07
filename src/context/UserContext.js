@@ -8,6 +8,8 @@ export function UserContextProvider({children}) {
 
     const [user, setUser] = useState(null);
     const [userLoading, setUserLoading] = useState(true);
+    const [myscore, setMyScore] = useState(0);
+
     const navigate = useNavigate();
 
      async function register(username, email, password, image) {
@@ -41,14 +43,14 @@ export function UserContextProvider({children}) {
      }
      
      //post score
-     async function playerScore(username,score) {
+     async function playerScore(username,myscore) {
         try {
            
-            const res = await axios.post(`/${username}/score`, { score});
-            console.log("uername and score- "+username, score);
+            const res = await axios.post(`/${username}/score`, { myscore});
+            console.log("uername and score- "+username, myscore);
             console.log("res"+ res);
-            console.log("score: "+score);
-           setUser(res.score)
+            console.log("score: "+myscore);
+           setMyScore(res.score);
            
         } catch (error) {
             console.log(error?.response?.data)
