@@ -5,7 +5,7 @@ import { useUserContext } from '../../context/UserContext';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import classes from './index.module.css';
-import { MdEmail } from 'react-icons/md';
+import { BsFillPersonFill } from 'react-icons/bs';
 import { MdLock } from 'react-icons/md';
 
 function Login() {
@@ -27,13 +27,13 @@ function Login() {
           <Input
             type="username"
             placeholder="username"
-            Icon={MdEmail}
+            Icon={BsFillPersonFill}
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
           <Input
             type="password"
-            placeholder="Password"
+            placeholder="password"
             Icon={MdLock}
             value={password}
             onChange={(e) => setPassword(e.target.value)}

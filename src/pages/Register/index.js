@@ -43,14 +43,14 @@ function Register() {
           >
             <Input
               type="text"
-              placeholder="Name"
+              placeholder="username"
               Icon={BsFillPersonFill}
               value={username}
               onChange={(e) => setName(e.target.value)}
             />
             <Input
               type="email"
-              placeholder="Email"
+              placeholder="email"
               data-testid="email-input"
               Icon={MdEmail}
               value={email}
@@ -58,7 +58,7 @@ function Register() {
             />
             <Input
               type="password"
-              placeholder="Password"
+              placeholder="password"
 
               Icon={MdLock}
               value={password}
