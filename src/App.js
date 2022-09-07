@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Quiz, QuizForm } from "./pages";
+import { MultiplayQuizForm, Quiz, QuizForm } from "./pages";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
@@ -10,6 +10,7 @@ import axios from 'axios';
 import Result from "./pages/Result";
 import Lobby from "./pages/Lobby";
 import Multiplay from "./pages/Multiplay";
+import MultiplayQuiz from "./pages/MultiplayQuiz";
 
 
 function App() {
@@ -51,7 +52,12 @@ console.log(data)
       <Route path="/leaderboard" element={<Leaderboard/>}/>
       <Route path="/lobby" element={<Lobby/>}/>
       <Route path="/multiplay" element={<Multiplay/>}/>
-
+      <Route path="/multiquiz" element={<MultiplayQuiz name={name}
+              questions={questions}
+              score={score}
+              setScore={setScore}
+              setQuestions={setQuestions}/>}/>
+      <Route path="/multiplayform" element={<MultiplayQuizForm name="player" fetchQuestions={fetchQuestions}/>}/>
       <Route path="/*" element={<h1>Page not found!</h1>}/>
       <Route path="/result" element={<Result name={name} score={score}/>} />
 

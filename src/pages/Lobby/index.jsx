@@ -17,7 +17,7 @@ function Lobby() {
     const navigate = useNavigate();
 
     const handlepage=()=>{
-        navigate("/quizform");
+        navigate("/multiplayform");
     }
   
     useEffect(() => {

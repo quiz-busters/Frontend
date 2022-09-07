@@ -2,9 +2,9 @@ import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import './question.css';
+import './multiquestion.css';
 
-const Question=({  currQues,
+const MultiplayQuestion=({  currQues,
   setCurrQues,
   questions,
   options,
@@ -36,7 +36,7 @@ const Question=({  currQues,
   }
 
   const handleNext=()=>{
-    if(currQues>8){
+    if(currQues>3){
       navigate("/result");
     }
     else if(selected){
@@ -89,4 +89,4 @@ const Question=({  currQues,
         </>
     )
 }
-export default Question
+export default MultiplayQuestion

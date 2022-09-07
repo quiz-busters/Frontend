@@ -39,6 +39,25 @@ export function UserContextProvider({children}) {
         }
         
      }
+     
+     //post score
+     async function playerScore(username,score) {
+        try {
+           
+            const res = await axios.post(`/${username}/score`, { score});
+            console.log("uername and score- "+username, score);
+            console.log("res"+ res);
+            console.log("score: "+score);
+           setUser(res.score)
+           
+        } catch (error) {
+            console.log(error?.response?.data)
+        }
+        
+     }
+
+
+
 
      async function getCurrentUser() {
         try {
@@ -67,7 +86,7 @@ export function UserContextProvider({children}) {
         getCurrentUser,
         logout,
         userLoading,
-        user
+        user,playerScore
     };
 
 
