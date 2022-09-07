@@ -49,7 +49,7 @@ function Home() {
                     <IoMdTrophy color='white'/>
                 </div>
                 <div aria-label='score' >
-                    <p>Your Score : {user.score}</p>
+                    <p>Your Score : {user?.score}</p>
                     
                 </div>
                 <div>
