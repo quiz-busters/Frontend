@@ -43,7 +43,7 @@ function Register() {
           >
             <Input
               type="text"
-              placeholder="Name"
+              placeholder="Username"
               Icon={BsFillPersonFill}
               value={username}
               onChange={(e) => setName(e.target.value)}

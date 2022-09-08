@@ -19,7 +19,7 @@ export function UserContextProvider({children}) {
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             setUser(res.data.user)
-            navigate('/');
+            navigate('/login');
         } catch (error) {
             console.log(error?.response?.data)
         }
@@ -33,7 +33,7 @@ export function UserContextProvider({children}) {
             console.log(res.data);
             localStorage.setItem("token", res.data.token)
             
-            setUser(res.data);
+            setUser(res.data.user);
            
             navigate('/');
         } catch (error) {
@@ -82,6 +82,7 @@ export function UserContextProvider({children}) {
      function logout() {
         localStorage.removeItem('token')
         setUser(null);
+        navigate("/login");
      }
 
     const value = {

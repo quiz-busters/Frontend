@@ -60,13 +60,13 @@ function Home() {
             
 
             <div className={classes.newGame}>
-            <div>
+            {/* <div> */}
               <Button variant="contained"
         color="secondary"  className="start_btn" size="large"
         style={{alignSelf:"center", marginTop:60}} 
        onClick={handlepage}>Start Quiz
           </Button>
-          </div>
+          {/* </div> */}
           </div>
 
 

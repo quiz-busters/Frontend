@@ -17,15 +17,18 @@
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    margin: 10px;
+    /* margin: 10px; */
+    padding: 0 20px;
+    margin: 20px 0;
   }
   
   .timer {
-    width: 70vh;
+    width: 50vw;
     border-radius: 50%;
-    border: 5px solid blue;
+    border: 5px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 5vh;
+    margin-bottom: 20px;
     }

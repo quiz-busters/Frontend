@@ -105,6 +105,11 @@
     padding: 20px;
     margin-top: 20px;
     text-align: center;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
 }
 
 .newGame header {
@@ -157,13 +162,16 @@
     border-radius: 5px;
 }
 .start_btn{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    text-align: center; */
     
 }
 
+.newGame button {
+    margin-top: 0 !important;
+}
 
 
 

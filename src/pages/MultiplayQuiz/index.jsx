@@ -1,5 +1,6 @@
 import { CircularProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MultiplayQuestion from "../../components/MultiplayQuestion";
 import Timer from "../../components/Timer";
 import './multiQuiz.css'
@@ -8,6 +9,7 @@ const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
 
     const [options, setOptions] = useState();
     const [currQues, setCurrQues] = useState(0);
+    const navigate = useNavigate();
 
   useEffect(() => {
     setOptions(
@@ -21,6 +23,10 @@ const MultiplayQuiz=({name, questions, score, setScore,setQuestions})=>{
 
   // const [message, setMessage] = useState('');
   const setStop = () => {
+    console.log("current question", currQues)
+    if(currQues >= 4) {
+      return navigate("/result")
+    }
     setCurrQues((prev) => {
       if (prev < 5) {
         return prev + 1

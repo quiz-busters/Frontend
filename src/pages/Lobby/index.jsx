@@ -15,10 +15,11 @@ import { useState } from 'react';
 
 function Lobby({setName, setScore, player}) {
 
-    const { user } = useUserContext();
+    const { user, getCurrentUser } = useUserContext();
     const [player2, setPlayer2] = useState();
     const [player3, setPlayer3] = useState();
     const [player4, setPlayer4] = useState();
+    console.log(user?.score, player2?.score, player3?.score, player4?.score)
 
     const navigate = useNavigate();
     const [params, setParams] = useSearchParams();
@@ -52,9 +53,13 @@ function Lobby({setName, setScore, player}) {
     },[player])
 
     useEffect(() => {
+       getCurrentUser();
+    }, [params.get("username1")]);
+
+    useEffect(() => {
         console.log("params changed", params.get("username2"));
         ( async () => {
-            const res = await axios.get(`https://quiz-busters.herokuapp.com/users/${params.get("username2")}`)
+            const res = await axios.get(`/users/${params.get("username2")}`)
             console.log(res.data)
             setPlayer2(res.data)
         })()
@@ -63,7 +68,7 @@ function Lobby({setName, setScore, player}) {
     useEffect(() => {
         console.log("params changed", params.get("username3"));
         ( async () => {
-            const res = await axios.get(`https://quiz-busters.herokuapp.com/users/${params.get("username3")}`)
+            const res = await axios.get(`/users/${params.get("username3")}`)
             console.log(res.data)
             setPlayer3(res.data)
         })()
@@ -72,38 +77,20 @@ function Lobby({setName, setScore, player}) {
     useEffect(() => {
         console.log("params changed", params.get("username4"));
         ( async () => {
-            const res = await axios.get(`https://quiz-busters.herokuapp.com/users/${params.get("username4")}`)
+            const res = await axios.get(`/users/${params.get("username4")}`)
             console.log(res.data)
             setPlayer4(res.data)
         })()
     }, [params.get("username4")]);
-   
-
-    console.log("user1 score- "+user?.score);
-    console.log("player2 scor - "+player2?.score);
-
-    
-    const arr=[user?.score, player2?.score,  player3?.score];
-    const users=[user?.username, player2?.username,  player3?.username];
-
-    console.log("arr - "+arr)
-       const winner=()=>{ return Math.max(...arr)}
-       const scoreWinner=winner();
-
-     
-
-      const finalAns=()=>{ users.forEach(element => {
-       
-            console.log("element - " +element);
-            return element
-        })}
-        
-       
-       console.log("finalans-"+ finalAns())
-
-     
-       
       
+    
+       function findWinner() {
+        const winningScore = Math.max(user?.score, player2?.score, player3?.score, player4?.score);
+        const users = [user, player2, player3, player4]
+        const winningUser = users.find((user) => user?.score == winningScore)
+        return winningUser;
+       }
+       console.log("winning score: ", findWinner());
 
 
     return(
@@ -119,7 +106,7 @@ function Lobby({setName, setScore, player}) {
             </header>
 
 
-            <div>winner is {winner()}</div>
+            <h3 className={classes.winner}>Winner is {findWinner()?.username}</h3>
 
             <div className={classes.scoreContainer}>
                 <div>

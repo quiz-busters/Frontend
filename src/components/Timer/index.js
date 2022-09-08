@@ -9,7 +9,7 @@ export default function Timer({setStop, currQues}) {
             setTimer((prev) => prev - 1 );
         }, 1000);
         return () => clearInterval(interval)
-    }, [timer, setStop]);
+    }, [timer]);
 
     useEffect(() => {
         setTimer(15);
