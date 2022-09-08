@@ -83,23 +83,43 @@ function Lobby({setName, setScore, player}) {
     console.log("player2 scor - "+player2?.score);
 
     
-    const arr=[user?.score, player2?.score,  player3?.score];
-    const users=[user?.username, player2?.username,  player3?.username];
+    const arr=[user?.score, player2?.score,  player3?.score, player4?.score];
+    const users=[user?.username, player2?.username,  player3?.username, player4?.username];
 
     console.log("arr - "+arr)
        const winner=()=>{ return Math.max(...arr)}
        const scoreWinner=winner();
-
-     
-
-      const finalAns=()=>{ users.forEach(element => {
+       console.log("scorewinner - " +scoreWinner);
        
-            console.log("element - " +element);
-            return element
-        })}
+       function showWinner () {
+     if (scoreWinner == user?.score) {
+        return <IoMdTrophy color='white'/>
+     }
+    }
+       function showWinner2 () {
+        if (scoreWinner == player2?.score) {
+           return <IoMdTrophy color='white'/>
+        }
+       }
+       function showWinner3 () {
+        if (scoreWinner == player3?.score) {
+           return <IoMdTrophy color='white'/>
+        }
+       }
+       function showWinner4 () {
+        if (scoreWinner == player4?.score) {
+           return <IoMdTrophy color='white'/>
+        }
+       }
+
+    //   const finalAns=()=>{ users.forEach(element => {
+       
+    //         console.log("element - " +element);
+    //         return element
+    //     })}
         
        
-       console.log("finalans-"+ finalAns())
+    //    console.log("finalans-"+ finalAns())
 
      
        
@@ -119,11 +139,11 @@ function Lobby({setName, setScore, player}) {
             </header>
 
 
-            <div>winner is {winner()}</div>
+            <div></div>
 
             <div className={classes.scoreContainer}>
                 <div>
-                    <IoMdTrophy color='white'/>
+                   {showWinner()}
                 </div>
                 <div  >
                     <p>{user?.username}</p><br></br>
@@ -141,7 +161,7 @@ function Lobby({setName, setScore, player}) {
 
             <div className={classes.scoreContainer}>
                 <div>
-                    <IoMdTrophy color='white'/>
+                {showWinner2()}
                 </div>
                 <div >
                     <p>{player2?.username}</p><br></br>
@@ -159,7 +179,7 @@ function Lobby({setName, setScore, player}) {
             
           <div className={classes.scoreContainer}>
                 <div>
-                    <IoMdTrophy color='white'/>
+                {showWinner3()}
                 </div>
                 <div >
                     <p>{player3?.username}</p><br></br>
@@ -178,7 +198,7 @@ function Lobby({setName, setScore, player}) {
 
           <div className={classes.scoreContainer}>
                 <div>
-                    <IoMdTrophy color='white'/>
+                {showWinner4()}
                 </div>
                 <div >
                     <p>{player4?.username}</p><br></br>
