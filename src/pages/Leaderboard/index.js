@@ -15,11 +15,11 @@ function Leaderboard() {
     const navigate = useNavigate();
     const [ users, setUsers ] = useState([]);
 
-    useEffect(() => {
-        if (!user) {
-            navigate('/login', {replace: true});
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if (!user) {
+    //         navigate('/login', {replace: true});
+    //     }
+    // }, [user]);
 
     useEffect(() => {
         ( async () => {

@@ -92,22 +92,22 @@ function Lobby({setName, setScore, player}) {
        console.log("scorewinner - " +scoreWinner);
        
        function showWinner () {
-     if (scoreWinner == user?.score) {
+     if (scoreWinner == user?.score && scoreWinner !== 0) {
         return <IoMdTrophy color='white'/>
-     }
+     } 
     }
        function showWinner2 () {
-        if (scoreWinner == player2?.score) {
+        if (scoreWinner == player2?.score && scoreWinner !== 0) {
            return <IoMdTrophy color='white'/>
         }
        }
        function showWinner3 () {
-        if (scoreWinner == player3?.score) {
+        if (scoreWinner == player3?.score && scoreWinner !== 0) {
            return <IoMdTrophy color='white'/>
         }
        }
        function showWinner4 () {
-        if (scoreWinner == player4?.score) {
+        if (scoreWinner == player4?.score && scoreWinner !== 0) {
            return <IoMdTrophy color='white'/>
         }
        }
