@@ -1,0 +1,49 @@
+import { default as Question } from '.';
+import React from 'react';
+
+import { screen, render } from '@testing-library/react';
+
+describe('result page test', () => {
+
+    test('question page renders', () => {
+        render(<Question />)
+       // const heading = screen.getByRole('heading');
+       // expect(heading.textContent).toMatch(/myresult/i);
+
+        const heading = screen.getByRole('question')
+        expect(heading.textContent).toContain('Question');
+
+    });
+
+    test('test alert role', () => {
+       
+    let error = screen.getByRole('alert')
+    expect(error.textContent).toContain("something went wrong!");
+
+    });
+   
+
+    
+    });
+
+
+/*import '@testing-library/jest-dom';
+
+import { default as Result } from '.';
+import {  screen } from '@testing-library/react';
+
+describe('Result', () => {
+    beforeEach(() => {
+       
+    });
+
+    test('it shows the sunrise results', async () => {
+        const sunrise = await screen.findByText("2:21:09 AM");
+        expect(sunrise).toBeInTheDocument();
+    });
+
+    test('it shows the sunset results', async () => {
+        const sunset = await screen.findByText("2:24:50 PM");
+        expect(sunset).toBeInTheDocument();
+    });
+});*/

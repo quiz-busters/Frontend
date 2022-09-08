@@ -1,0 +1,37 @@
+
+  
+  /* @media (min-width: 1000px) {
+    header {
+      height: 400px;
+    }
+  }
+  
+  
+  @media (max-width: 800px) {
+    h2 {
+      font-size: 20px;
+    }
+  }  */
+
+  .header {
+    background-image: url("../../images/Quiz\ Time\ Logo.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    margin-bottom: -40px;
+  }
+
+  .main {
+    padding: 20px 30px;
+    background-color: white;
+    flex-grow: 1;
+    border-radius: 40px 40px 0 0;
+    z-index: 100;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    min-height: 100vh;
+  }

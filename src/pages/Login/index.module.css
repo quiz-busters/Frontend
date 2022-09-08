@@ -1,0 +1,36 @@
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+
+}
+
+.buttons button {
+    /* flex-grow: 1; */
+    width: 50%;
+}
+
+.buttons a {
+    /* flex-grow: 1; */
+    width: 50%;
+    display: block;
+    text-decoration: none;
+}
+
+.buttons a button {
+    /* flex-grow: 1; */
+    width: 100%;
+    display: block;
+    background-color: white;
+    color: black;
+}
+
+.buttons a button:hover {
+    background-color: #5318FB;
+    color: white;
+}
+

@@ -1,0 +1,33 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    color: #AFAFAF;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+}
+
+.footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+}
+
+.footer div p {
+    
+}
+
+.footer div svg {
+    width: 40px;
+    height: 40px;
+}
+
+.active {
+    font-weight: bold;
+    color: black;
+}
