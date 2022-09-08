@@ -21,7 +21,9 @@ function App() {
   // const [player1,setPlayer1] = useState()
   const [player,setPlayer] = useState({
     player1: "",
-    player2:""
+    player2:"",
+    player3:"",
+    player4:""
   })
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Timer({setStop, currQues}) {
-    const [timer, setTimer] = useState(10);
+    const [timer, setTimer] = useState(15);
 
     useEffect(() => {
         if (timer === 0) return setStop();
@@ -12,7 +12,7 @@ export default function Timer({setStop, currQues}) {
     }, [timer, setStop]);
 
     useEffect(() => {
-        setTimer(10);
+        setTimer(15);
     }, [currQues] )
     return timer;
 }

@@ -10,6 +10,7 @@ const Result=({name, score})=>{
     console.log(name)
     const navigate = useNavigate()
     const {user} = useUserContext()
+    
 
     /*const navigate=useNavigate();
 
@@ -39,8 +40,8 @@ const Result=({name, score})=>{
           onClick={(e) => {
            
             playerScore(name, score);
-                navigate(`/lobby?username1=${user?.username}&username2=${name}`)
-            } }>Go To Homepage
+                navigate(-3)
+            } }>Go To Lobby
           </Button>
         </div>
         

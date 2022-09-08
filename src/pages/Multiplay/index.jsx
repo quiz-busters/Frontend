@@ -16,6 +16,8 @@ const Multiplay=({setPlayer})=>{
     const [error, setError] = useState(false);
     const [username1, setUsername1] = useState(user?.username);
     const [username2, setUsername2] = useState("");
+    const [username3, setUsername3] = useState("");
+    const [username4, setUsername4] = useState("");
 
     const navigate = useNavigate();
 
@@ -26,12 +28,24 @@ const Multiplay=({setPlayer})=>{
           username: username2
         })
 
+        const res3 = await axios.post("/createuser", {
+          username: username3
+        })
+
+        const res4 = await axios.post("/createuser", {
+          username: username4
+        })
+
         console.log(res2.data)
+        console.log(res3.data)
+        console.log(res4.data)
         setPlayer({
           player1: username1,
-          player2: username2
+          player2: username2,
+          player3: username3,
+          player4: username4
         })
-        navigate(`/lobby?username1=${username1}&username2=${username2}`);
+        navigate(`/lobby?username1=${username1}&username2=${username2}&username3=${username3}&username4=${username4}`);
     
     };
     
@@ -45,7 +59,8 @@ const Multiplay=({setPlayer})=>{
 
           <div  className="settings__select">
             <TextField 
-           
+            // value={lobbyName}
+            // onChange={(e) => (setlobbyName(e.target.value))}
               style={{ marginBottom: 25 }}
               label="Enter lobby name/id"
               variant="outlined"
@@ -55,7 +70,7 @@ const Multiplay=({setPlayer})=>{
            value={username1}
            onChange={(e) => (setUsername1(e.target.value))}
            style={{ marginBottom: 25 }}
-           label="enter first player's username"
+           label="Host User"
            variant="outlined"
           required/>
           
@@ -64,7 +79,23 @@ const Multiplay=({setPlayer})=>{
            value={username2}
            onChange={(e) => (setUsername2(e.target.value))}
            style={{ marginBottom: 25 }}
-           label="enter second player's username"
+           label="Add player 2"
+           variant="outlined"
+          required/>
+
+<TextField 
+           value={username3}
+           onChange={(e) => (setUsername3(e.target.value))}
+           style={{ marginBottom: 25 }}
+           label="Add player 3"
+           variant="outlined"
+          required/>
+
+<TextField 
+           value={username4}
+           onChange={(e) => (setUsername4(e.target.value))}
+           style={{ marginBottom: 25 }}
+           label="Add player 4"
            variant="outlined"
           required/>
           
