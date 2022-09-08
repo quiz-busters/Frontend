@@ -36,11 +36,11 @@ function Lobby({setName, setScore, player}) {
         setName(username)
     }
   
-    useEffect(() => {
+  /*  useEffect(() => {
         if (!user) {
             navigate('/login', {replace: true});
         }
-    }, [user]);
+    }, [user]);*/
 
     useEffect(() => {
         setParams({
@@ -77,6 +77,11 @@ function Lobby({setName, setScore, player}) {
             setPlayer4(res.data)
         })()
     }, [params.get("username4")]);
+   
+    const arr=[user?.score, player2?.score,  player3?.score];
+       const winner=()=>{Math.max(...arr)}
+       console.log(winner())
+      
 
 
     return(
@@ -90,6 +95,9 @@ function Lobby({setName, setScore, player}) {
                 </div>
                
             </header>
+
+
+            <div>winner is {winner()}</div>
 
             <div className={classes.scoreContainer}>
                 <div>
@@ -163,7 +171,8 @@ function Lobby({setName, setScore, player}) {
           </Button>
           </div>
           </div>
-         
+           
+        
         
             </main>
             
