@@ -18,17 +18,10 @@ function Lobby({setName, setScore, player}) {
     const { user, getCurrentUser } = useUserContext();
     const [player2, setPlayer2] = useState();
     const [player3, setPlayer3] = useState();
-    const [player4, setPlayer4] = useState();
-    console.log(user?.score, player2?.score, player3?.score, player4?.score)
+    console.log(user?.score, player2?.score, player3?.score)
 
     const navigate = useNavigate();
     const [params, setParams] = useSearchParams();
-
-
-    console.log(params.get("username1"));
-    console.log(params.get("username2"));
-    console.log(params.get("username3"));
-    console.log(params.get("username4"));
 
     setScore(0)
 
@@ -47,8 +40,7 @@ function Lobby({setName, setScore, player}) {
         setParams({
             username1: user?.username,
             username2:player.player2 || params.get("username2"),
-            username3:player.player3 || params.get("username3"),
-            username4:player.player4 || params.get("username4")
+            username3:player.player3 || params.get("username3")
         })
     },[player])
 
@@ -60,7 +52,6 @@ function Lobby({setName, setScore, player}) {
         console.log("params changed", params.get("username2"));
         ( async () => {
             const res = await axios.get(`/users/${params.get("username2")}`)
-            console.log(res.data)
             setPlayer2(res.data)
         })()
     }, [params.get("username2")]);
@@ -69,28 +60,17 @@ function Lobby({setName, setScore, player}) {
         console.log("params changed", params.get("username3"));
         ( async () => {
             const res = await axios.get(`/users/${params.get("username3")}`)
-            console.log(res.data)
             setPlayer3(res.data)
         })()
     }, [params.get("username3")]);
-
-    useEffect(() => {
-        console.log("params changed", params.get("username4"));
-        ( async () => {
-            const res = await axios.get(`/users/${params.get("username4")}`)
-            console.log(res.data)
-            setPlayer4(res.data)
-        })()
-    }, [params.get("username4")]);
       
     
        function findWinner() {
-        const winningScore = Math.max(user?.score, player2?.score, player3?.score, player4?.score);
-        const users = [user, player2, player3, player4]
+        const winningScore = Math.max(user?.score, player2?.score, player3?.score);
+        const users = [user, player2, player3]
         const winningUser = users.find((user) => user?.score == winningScore)
         return winningUser;
        }
-       console.log("winning score: ", findWinner());
 
 
     return(
@@ -162,24 +142,6 @@ function Lobby({setName, setScore, player}) {
           </div>
           </div>
 
-
-          <div className={classes.scoreContainer}>
-                <div>
-                    <IoMdTrophy color='white'/>
-                </div>
-                <div >
-                    <p>{player4?.username}</p><br></br>
-                    <p>Score:{player4?.score} </p>
-                </div>
-                
-                <div>
-                    <Button variant="contained"
-        color="secondary"  size="large"
-        style={{alignSelf:"center"}} 
-       onClick={() => handlepage(player4?.username)}>Start Quiz
-          </Button>
-          </div>
-          </div>
            
         
         
