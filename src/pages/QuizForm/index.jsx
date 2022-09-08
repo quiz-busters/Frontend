@@ -19,7 +19,7 @@ const QuizForm=({name,setName,fetchQuestions})=>{
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-      if (!category || !difficulty || !name) {
+      if (!category || !difficulty ) {
         setError(true);
         alert("Please select all the option!")
         return;

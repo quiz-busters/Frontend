@@ -82,27 +82,56 @@ function Lobby({setName, setScore, player}) {
     console.log("user1 score- "+user?.score);
     console.log("player2 scor - "+player2?.score);
 
-    
-    const arr=[user?.score, player2?.score,  player3?.score];
-    const users=[user?.username, player2?.username,  player3?.username];
 
-    console.log("arr - "+arr)
-       const winner=()=>{ return Math.max(...arr)}
+
+     let user1={user:user?.username, score:user?.score};
+
+     let user2={user:player2?.username, score:player2?.score}
+     let user3={user:player3?.username, score:player3?.score}
+     let user4={user:player4?.username, score:player4?.score}
+
+     const finalArr=[user1, user2,  user3,user4];
+     console.log("user check - "+user1.score);
+
+
+       const winner=()=>{ return Math.max(...[user1.score, user2.score,user3.score, user4.score])}
        const scoreWinner=winner();
+       console.log("funct - "+winner())
 
+     let winnerStr="";
      
 
-      const finalAns=()=>{ users.forEach(element => {
-       
-            console.log("element - " +element);
-            return element
-        })}
+      function finalAns(a){ finalArr.forEach(element => {
+        if(element.score===0) {   winnerStr=""}
+
+    else if((element.score===a&& element.user===user1.user)){
+            console.log("myuser - " +user1.user);
+            winnerStr=user1.user;
         
-       
-       console.log("finalans-"+ finalAns())
+        
+             }
+             else if((element.score===a&& element.user===user2.user)){
+                console.log("myuser - " +user2.user);
+                winnerStr=user2.user;
+            
+            
+                 } else if((element.score===a&& element.user===user3.user)){
+                    console.log("myuser - " +user3.user);
+                    winnerStr=user3.user;
+                
+                
+                     } else if((element.score===a&& element.user===user4.user)){
+                        console.log("myuser - " +user4.user);
+                        winnerStr=user4.user;
+                    
+                    
+                         }return winnerStr
+        }); return winnerStr}
+        
+
+       console.log("finalans-"+ finalAns(scoreWinner))
 
      
-       
       
 
 
@@ -114,12 +143,13 @@ function Lobby({setName, setScore, player}) {
                 <div className={classes.leftHeader}>
                     <p>Welcome to the Lobby!</p>
                     <p>Let's start the game!</p>
+                    <h3 id="showWinner"> {finalAns(scoreWinner)+" winner "} </h3>
                 </div>
                
             </header>
 
 
-            <div>winner is {winner()}</div>
+           
 
             <div className={classes.scoreContainer}>
                 <div>

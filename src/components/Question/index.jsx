@@ -36,7 +36,7 @@ const Question=({  currQues,
   }
 
   const handleNext=()=>{
-    if(currQues>8){
+    if(currQues>3){
       navigate("/result");
     }
     else if(selected){
