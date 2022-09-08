@@ -78,9 +78,31 @@ function Lobby({setName, setScore, player}) {
         })()
     }, [params.get("username4")]);
    
+
+    console.log("user1 score- "+user?.score);
+    console.log("player2 scor - "+player2?.score);
+
+    
     const arr=[user?.score, player2?.score,  player3?.score];
-       const winner=()=>{Math.max(...arr)}
-       console.log(winner())
+    const users=[user?.username, player2?.username,  player3?.username];
+
+    console.log("arr - "+arr)
+       const winner=()=>{ return Math.max(...arr)}
+       const scoreWinner=winner();
+
+     
+
+      const finalAns=()=>{ users.forEach(element => {
+       
+            console.log("element - " +element);
+            return element
+        })}
+        
+       
+       console.log("finalans-"+ finalAns())
+
+     
+       
       
 
 
